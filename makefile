@@ -6,3 +6,6 @@ draft:bibliography.bib manuscript.md template_draft.docx figures/*
 
 inverse: manuscript.docx
 	pandoc -s -o output.md --track-changes manuscript.docx
+
+si: bibliography.bib supporting_information/SI.md template_draft.docx figures/*
+	pandoc -s -o SI.docx --bibliography bibliography.bib supporting_information/SI.md --reference-doc=template_draft.docx --filter pandoc-crossref --citeproc -L pagebreak.lua

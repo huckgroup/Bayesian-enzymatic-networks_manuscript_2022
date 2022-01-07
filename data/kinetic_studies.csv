@@ -5,7 +5,6 @@ SNCA17,2020_12_01,Mathieu,flow,steady_state,750,100,Tris/Mg,HK,1,10,"['G','ATP']
 SNCA18,2020_12_01,Mathieu,flow,steady_state,750,100,Tris/Mg,HK,1,1,"['G','ATP']","['G6P','ADP']",,"['G','ATP']","['G6P']",kinetic_studies/SNCA18.csv,
 SNKS03,2021_02_22,Jeroen,flow,steady_state,750,100,Tris/Mg,HK,1,1,"['G','ATP']","['G6P','ADP']",,"['G','ATP']","['G6P']",kinetic_studies/SNKS03.csv,
 SNKS04,2021_03_04,Jeroen,flow,steady_state,750,100,Tris/Mg,HK,1,1,"['G','ATP']","['G6P','ADP']",,"['G','ATP']","['G6P','ATP']",kinetic_studies/SNKS04.csv,
-SNKS07,2021_03_23,Jeroen,flow,steady_state,750,100,Tris/Mg,HK,1,1,"['F','ATP']","['F6P','ADP']",,"['F','ATP']","['ATP']",kinetic_studies/SNKS07.csv,
 SNKS08,2021_04_07,Jeroen,flow,steady_state,750,100,Tris,G6PDH,1,10,"['G6P','NAD']","['G6pdL','NADH']",,"['G6P','NAD']","['NADH']",kinetic_studies/SNKS08.csv,
 SNKS11,2021_06_07,Jeroen,flow,steady_state,750,100,Tris,GDH,2,0.5,"['G','NAD']","['GdL','NADH']",,"['G','NAD']","[NADH']",kinetic_studies/SNKS11.csv,
 SNKS12,2021_06_11,Jeroen,flow,steady_state,750,100,Tris,GDH,2,0.5,"['G','NAD']","['GdL','NADH']",,"['G','NAD']","[NADH']",kinetic_studies/SNKS12.csv,
