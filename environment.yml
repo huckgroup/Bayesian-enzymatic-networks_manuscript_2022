@@ -1,0 +1,22 @@
+name: bayes
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9.5
+  - numpy=1.20
+  - pandas=1.2.4
+  - scipy=1.6
+  - matplotlib=3.4
+  - seaborn=0.11
+  - notebook=6.4
+  - jupyterlab=3.0
+  - pymc3=3.11
+  - arviz=0.11
+  - networkx=2.6
+  - sympy=1.8
+  - numba=0.53
+  - pandoc=1.15
+  - pip:
+    - watermark
+    - -e ./libs/bayern
