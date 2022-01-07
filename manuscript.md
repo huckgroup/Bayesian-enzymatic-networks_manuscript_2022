@@ -5,7 +5,7 @@ author:
 - Mathieu G. Baltussen
 - Jeroen van de Wiel
 - Cristina Lía Fernández Regueiro
-- Miglé Jakštaitė
+- Miglė Jakštaitė
 - Wilhelm T.S. Huck
 
 link-references: true
