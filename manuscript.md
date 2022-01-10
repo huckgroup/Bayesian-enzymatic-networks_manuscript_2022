@@ -79,7 +79,8 @@ Finally, we discuss how results from these Bayesian methods should be interprete
 
 ## Bead production
 
-TODO: Add bead-production protocol
+Droplet-based microfluidics technique was used to produce empty hydrogel beads consisting of acrylamide, N,N'-methylenebisacrylamide, acrylic acid and 2,2′Azobis(2-methylpropionamidine) dihydrochloride. 
+After UV polymerisation the carboxyl groups of acrylic acid were activated by EDC/NHS chemistry and later enzyme was coupled via amine groups of lysine residues forming monodisperse polyacrylamide-enzyme beads (PEBs).
 
 ## Flow experiments
 

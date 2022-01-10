@@ -15,16 +15,40 @@ link-bibliography: true
 
 ## Materials
 
+All chemicals and reagents were used as received from commercial suppliers without any further
+treatment unless stated otherwise.
+
 ### Enzymes
 
+TODO: Add GDH, HK, G6PDH, ...?
 ### Substrates
+ 
+TODO: Add G, G6P, NAD, NADH, ATP, ADP, ... ?
+
 ## Instrumentation
 
 ### Spectroscopy
 
+#### Offline absorbance
+
+TODO: Adapt to protocol used in our experiments
+
+Absorbance measurements for enzyme activity determination were performed with a Tecan Spark 10M plate reader. 
+The Absorbance intensity of wells containing 30-200 µL of the reaction mixture was monitored for 1-4 min (shaking 3s/orbital mode/amplitude 4mm) at 23 °C using top or bottom reading mode. 
+λex/λem =380 nm/460 nm for 7-amino-4-methylcoumarin-based substrates.
+
+#### Online absorbance
+
+TODO: Adapt to protocol used in our experiments
+
+Absorbance in flow experiments was continuously measured at the reactor's output with a JASCO FP-8300ST spectrofluorometer for 7-amino-4-methylcoumarin-based substrates with thermostat at 25°C, wavelengths excitation 380 nm, emission 460 nm, bandwidths excitation and emission each 5 nm, manual sensitivity – PMT voltage 300 V (500 V for multiplication experiments in S4.4) with use of handmade polystyrene flow cuvette with an inner tube diameter of 1 mm.
+
 ### High-performance liquid chromatography
 
-### Flow experiments
+TODO: Adapt to protocol used in our experiments
+
+High-performance Liquid Chromatography (HPLC) was performed using Shimadzu Nexera/Prominence system under a 0.8 mL/min flow at 50 °C with a Shim-pack GIST-AQ C18 column. 
+For the Shimadzu system, an 8.8 min gradient program was used starting from 20% acetonitrile in H 2 O (both with 0.1% TFA): 0.3 min – 20%, 5.5 min – 90%, 5.8 min – 90 %, 5.85 min – 20 %, 8.8 min – 20%.
 
 ## Software
 Python scripts and Jupyter notebooks were used to create the Bayesian models and perform inference and predictive sampling. 
@@ -36,16 +60,36 @@ This SteadyStateOperator can be found in the [BayERN Python package](https://git
 
 # Production and characterisation of polyacrylamide-enzyme beads
 
-# General pipeline for experiments in flow
+## Empty bead production method
+
+The microfluidics device described in *Fernández Regueiro, et al.*[@FernandezRegueiro2021] was used to produce gel beads with a 20 µm wide T-junction, following an adapted procedure from *Rivello et al*[@Rivello2020]. 
+The gel solution phase consisted of 9.6% (w/v) acrylamide, 0.4% (w/v) N,N'-methylenebisacrylamide, 0.5% (w/v) acrylic acid and 1.5% (w/v) 2,2′Azobis(2-methylpropionamidine) dihydrochloride. 
+The oil phase contained 1.5% (v/v) Pico-Surf&trade; 1 in fluorinated fluid HFE-7500 (3M). 
+The flow rates for gel phase and oil phase were 600 µL/h and 900 µL/h, respectively. 
+The outflow emulsion was collected in the tube which was filled with 100 µL mineral oil. 
+Afterwards beads were polymerised using UV lamp for 10 minutes at 70% gain. 
+After polymerisation the lowest layer containing fluorocarbon phase was carefully removed with a P200 pipette. 
+The remaining beads were washed 3 times with 20% (v/v) 1H,1H,2H,2H-Perfluoro-1-octanol in HFE-7500 (3M), then 3 times with 1% (v/v) Span 80 in hexane, 3 times with 0.1% (v/v) Triton X-100 in Milli-Q and finally 3 times with Milli-Q. 
+Every washing step was finalised with mixing the tube using vortex, centrifuging at 5000 x g for 3 min and removing the layer which was not containing beads. 
+Furthermore, beads were flash frozen using nitrogen and freeze dried overnight. 
+After re-wetting beads, their size was determined using light microscope with 40x magnitude objective. 
+The average size was 50 µm in diameter.
+
+## General Enzyme Immobilisation after Polymerisation (ELAP)
+
+Empty acrylamide beads were re-dissolved in Milli-Q at a concentration of 0.0322 mg/µL.
+1-(3-Dimethylaminopropyl)-3-ethylcarbodiimide hydrochloride (100 mM) and N-Hydroxysuccinimide (100 mM) were added to the reaction mixture.
+The total volume of the activation solution was 5-fold of the beads volume. 
+The reaction mixture tube was put on the roller bank for 30 min. 
+After this, beads were centrifuged at 5000 x g for 3 min. 
+The supernatant was carefully removed using P200 pipette. 
+Beads were washed 3 times by adding Milli-Q, mixing using vortex, centrifuging and removing the supernatant.
+Furthermore, enzyme (xxx conc, units, Jeroen?, maybe add protocols/values for specific experiments below?) was added to the beads.
+The tube was put on the roller bank for 2 h coupling step. 
+Sequentially, beads were washed 8 times by adding Milli-Q, centrifuging and removing the supernatant. 
+Finally, beads were flash frozen using nitrogen and freeze dried overnight.
 
 # Overview of experiments
-  Right     Left     Center     Default
--------     ------ ----------   -------
-     12     12        12            12
-    123     123       123          123
-      1     1          1             1
-
-Table:  Demonstration of simple table syntax
 
 | Code |flowrate|enzymes|E volume ($\mu L$)|E batch|input substrates|observed substrates|observation techniques|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
@@ -64,7 +108,7 @@ Table:  Demonstration of simple table syntax
 
 Table: Overview of single-enzyme experiments
 
-| Code |flowrate|enzymes|E volume ($\mu L$)|E batch|input substrates|observed substrates|observation techniques|
+<!-- | Code |flowrate|enzymes|E volume ($\mu L$)|E batch|input substrates|observed substrates|observation techniques|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 |SNKS06|750|GDH,HK|10.0, 1.0|1, 1|G, NAD, ATP|NADH,ADP|offline absorbance,HPLC|
 |SNNS002|750|GDH,HK|0.05, 1.0|2, 2|G, NAD, ATP|NADH|offline absorbance|
@@ -74,8 +118,10 @@ Table: Overview of single-enzyme experiments
 |SNNS006|750|GDH,HK|0.075, 0.5|2, 1|G, NAD, ATP|NADH|offline absorbance|
 |SNNS007|750|GDH,HK|0.05, 1.0|2, 1|G, NAD, ATP|NADH|offline absorbance|
 
-Table: Overview of multi-enzyme experiments
+Table: Overview of multi-enzyme experiments -->
 
 # Overview of computational methods
+
+TODO: Give a short overview, refer to Jupyter notebooks for details.
 
 # References
