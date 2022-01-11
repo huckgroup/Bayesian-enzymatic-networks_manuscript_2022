@@ -19,4 +19,4 @@ dependencies:
   - pandoc=1.15
   - pip:
     - watermark
-    - git+https://github.com/mgbaltussen/BayERN.git
+    - git+https://github.com/mgbaltussen/BayERN.git@v0.1.0
