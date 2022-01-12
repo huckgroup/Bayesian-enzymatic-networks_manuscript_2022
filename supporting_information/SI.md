@@ -3,8 +3,8 @@ title:  'Supporting Information'
 
 link-references: true
 figPrefix:
-    - "figure"
-    - "figures"
+    - "SI figure"
+    - "SI figures"
 citation-style: analytical-chemistry
 link-citations: true
 link-bibliography: true
@@ -54,6 +54,7 @@ For the Shimadzu system, an 8.8 min gradient program was used starting from 20% 
 Python scripts and Jupyter notebooks were used to create the Bayesian models and perform inference and predictive sampling. 
 Example notebooks with explanation, and notebooks used for creating the figures in the publication can be found on the accompanying [github repository](https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022).
 This repository also includes version information for all software dependencies.
+PDF reproductions of the example notebooks are also included in this supporting information.
 
 To determine likelihoods of partially observed enzyme networks, a custom Theano operator was written to calculate likelihoods from steady-state conditions. 
 This SteadyStateOperator can be found in the [BayERN Python package](https://github.com/huckgroup/BayERN), alongside documentation, and is included in the dependencies of the manuscript github repository.
@@ -91,6 +92,9 @@ Finally, beads were flash frozen using nitrogen and freeze dried overnight.
 
 # Overview of experiments
 
+Data from these experiments can be found on the accompanying [github repository](https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022) in the `data` folder as csv-files.
+The files are directly used during analysis performed in the Jupyter notebooks.
+
 | Code |flowrate|enzymes|E volume ($\mu L$)|E batch|input substrates|observed substrates|observation techniques|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 |SNCA14|750|GDH|10|1|G, NAD|NADH|offline absorbance|
@@ -103,25 +107,43 @@ Finally, beads were flash frozen using nitrogen and freeze dried overnight.
 |SNKS11|750|GDH|0.5|2|G, NAD|NADH|offline absorbance|
 |SNKS12|750|GDH|0.5|2|G, NAD|NADH|offline absorbance|
 |SNKS18|750|GDH|2.0|3|G, NAD|NADH|offline absorbance|
-|SNKS19|750|GDH|5.0|3|G, NAD|NADH|offline absorbance|
 |SNKS20|750|G6PDH|2.0|1|G6P, NAD|NADH|online absorbance|
 
 Table: Overview of single-enzyme experiments
 
-<!-- | Code |flowrate|enzymes|E volume ($\mu L$)|E batch|input substrates|observed substrates|observation techniques|
+| Code |flowrate|enzymes|E volume ($\mu L$)|E batch|input substrates|observed substrates|observation techniques|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 |SNKS06|750|GDH,HK|10.0, 1.0|1, 1|G, NAD, ATP|NADH,ADP|offline absorbance,HPLC|
-|SNNS002|750|GDH,HK|0.05, 1.0|2, 2|G, NAD, ATP|NADH|offline absorbance|
-|SNNS003|750|GDH,HK|0.025, 1.5|2, 1|G, NAD, ATP|NADH|offline absorbance|
-|SNNS004|750|GDH,HK|0.0333, 1.33|2, 2|G, NAD, ATP|NADH|offline absorbance|
-|SNNS005|750|GDH,HK|0.0666, 0.666|2, 1|G, NAD, ATP|NADH|offline absorbance|
-|SNNS006|750|GDH,HK|0.075, 0.5|2, 1|G, NAD, ATP|NADH|offline absorbance|
-|SNNS007|750|GDH,HK|0.05, 1.0|2, 1|G, NAD, ATP|NADH|offline absorbance|
+|SNNS002|750|GDH,HK|0.5, 1.0|2, 1|G, NAD, ATP|NADH|offline absorbance|
+|SNNS003|750|GDH,HK|0.25, 1.5|2, 1|G, NAD, ATP|NADH|offline absorbance|
+|SNNS004|750|GDH,HK|0.333, 1.33|2, 1|G, NAD, ATP|NADH|offline absorbance|
+|SNNS005|750|GDH,HK|0.666, 0.666|2, 1|G, NAD, ATP|NADH|offline absorbance|
+|SNNS006|750|GDH,HK|0.75, 0.5|2, 1|G, NAD, ATP|NADH|offline absorbance|
+|SNNS007|750|GDH,HK|0.5, 1.0|2, 1|G, NAD, ATP|NADH|offline absorbance|
 
-Table: Overview of multi-enzyme experiments -->
+Table: Overview of multi-enzyme experiments
 
 # Overview of computational methods
+All computational studies were performed with Jupyter notebooks. Datasets were loaded in from csv-files with Pandas, and if relevant, concatenated together into larger objects.
 
-TODO: Give a short overview, refer to Jupyter notebooks for details.
+The Bayesian model, including the determination of prior probabilities and likelihood function, was created using PyMC3.
+Generally, prior probabilities for Michaelis-Menten parameters were chosen as uniform distributions over a specified interval.
+These distributions were used as uninformative priors to ensure no subjective information would enter the model, while garanteeing correct sampling and estimation of parameters.
+Priors for the uncertainty estimations (denoted by `sigma` in the notebooks) were given an exponential distribution, which also acted as an uninformative distribution, while garanteeing correct sampling.
+In larger models, where multiple likelihoods were combined, hyperpriors were placed on the $k_{cat}$ and $\sigma$ priors to increase convergence of the sampling algorithm.
+
+All sampling was peformed using the No-U-Turn Sampler (NUTS), which is an adaptive step-size  Hamiltonian Monte Carlo sampler. 
+When (automatically, or via a custom operator) the gradients of the likelihoods with respect to the kinetic parameters were given, this samples is much more efficient then a classical Metropolis Monte Carlo sampler, showing faster convergence and needing less samples for precise posterior estimations.
+Generally, sampling was performed using 4 or 8 independent chains on 4 or 8 cpu cores, all with 1000 tuning steps, and 1000 sampling steps, and a target step acceptance probability of 0.95.
+These values were found to yield good sampling results without becoming computatially inefficient.
+
+The samples obtained from the posterior distribution were further analysed using standard statistical tools in Python, the Numeric Python package and the Scientific Python package (NumPy and Scipy).
+To ensure the accessibility and reproducibility of these results the datasets and Jupyter notebooks, used for the analysis and creation of figures found in the publication, are made available as additional Supporting Information, and directly on github at https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022 .
+
+# Extended iterative combination of experiments
+
+![**Extended iterative posterior updating **  **A,B** Posterior parameter estimates obtained from the model combining all three (GDH, HK, GDH+HK) observation likelihoods. For every parameter, the distributions are shown for 15 different datasets, with each following dataset containing an extra experiment, added in chronological order. Distributions are shifted and scaled to increase visibility. For the GDH $k_{cat}$, two estimates are obtained because PEBs with two different enzyme concentrations were used in different experiments.](figures/fig_progression.svg){#fig:progression}
+
+
 
 # References
