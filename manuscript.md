@@ -170,9 +170,7 @@ The steady-states can be obtained either by symbolically solving $\textbf{f}(\te
 The gradients for the numerical steady-states are obtained from the Implicit Function Theorem, which relates the sensitivity of the steady-state concentrations $\frac{\partial g}{\partial \phi}$ to the kinetic parameters without needing to explicitly write down an expression for the steady-state concentrations, via $\frac{\partial g}{\partial \phi}(\phi, \theta) = - \Big[\frac{\partial f}{\partial C}(\textbf{C}, \phi, \theta)\Big]^{-1}\Big[\frac{\partial f}{\partial \phi}(\textbf{C}, \phi, \theta)\Big]$ , while gradients for symbolic steady-states are automatically obtained via automatic differentiation in PyMC3.
 Using the NUTS-algorithm, we can obtain correlated probability distributions for the value of every kinetic parameter of interest.
 <!-- An example of the resulting fit and parameter estimates for a simple, one-substrate enzyme system are shown in [@fig:setup]D-F. -->
-Implementations of the models used in this paper and the scripts to generate the figures can be found in the Supporting Information. 
-
-TODO: Add reference to SI/notebooks/Github at the end.
+Implementations of the computational models used in this paper and the scripts to generate the figures can be found in the Supporting Information and the associated Github page.
 
 # Results and Discussion
 
@@ -242,10 +240,10 @@ By directly encoding this assumption into the combined likelihood functions, obs
 Correlating the parameter estimates of the individual enzymes through a joint likelihood function allows us to potentially improve parameter estimates by observing a system not directly related to those parameters.
 Thus, as more and more observations are made, any parameter estimates will increase in accuracy simply by the inclusion of more data. 
 This iterative improvement of estimates as more data becomes available is shown by the gradual shrinkage of posterior distributions, implying that the estimates become more precise.
-This improvement is most pronounced when little data is available (for example from 4 to 6 experiments), but gradually becomes less for larger datasets (for example from 10 to 16 experiments, see SI).
+This improvement is most pronounced when little data is available (for example from 4 to 6 experiments), but gradually becomes less for larger datasets (the same figure extended to stepwise addition of every experiment up to 16 can be found in the SI), and eventually converges to a final posterior distribution.
+For these final posterior distributions, adding new data will not significantly alter the results, but the estimates will increase in robustness and become less susceptible to outliers in the data.
 
 ![**Evaluating uncertainty estimates** **A,** Posterior experimental uncertainty estimates for two specific HK-experiments, obtained from the posterior distributions calculated from the full dataset of all experiments. One experiment (green, SNKS04) has a low estimated uncertainty, while the other experiment (blue, SNCA18) has a much higher estimated uncertainty. **B, ** Associated observed datapoints of the low-uncertainty experiment, the posterior predictive distribution of expected observations, and 95% CI quantiles (black) **C, ** Associated observation datapoints of the high-uncertainty experiment, the posterior predictive distributions of the expected observations, and 95% CI quantiles (black).](figures/fig_datafusionb.svg){#fig:datafusionb}
-
 
 Additionally, by estimating the uncertainty in every experiment individually, it becomes more practical for a large number of experiments to determine which ones have corresponding results, and which ones are potential outliers or contain experimental errors.
 This can be observed especially in the uncertainty estimates for two specific HK experiments, as shown in [@fig:datafusionb]
@@ -339,13 +337,9 @@ TODO: add description of supporting information and link to Github
 
 # Author Information
 
-TODO: Add all author information
-
 **Corresponding Author**
 
 Wilhelm T.S. Huck - Institute for Molecules and Materials, Radboud University Nijmegen, 6525 AJ, Nijmegen, the Netherlands
-
-**Author Contributions**
 
 # Acknowledgments
 We wish to thank Max Derks (LabM8) for his help and work in designing the flow cuvette used for online absorbance detection. 
