@@ -1,0 +1,8 @@
+experiment_code,date,author,type,behaviour,flowrate,volume,buffer,enzymes,bead_batch,enzyme_concentration,substrates,products,inhibitors,controls,observables,data_path,comments
+SNKS06,2021_03_15,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[1,1]","[10.0,1.0]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH','ADP']",network_studies/SNKS06.csv,
+SNNS002,2021_06_18,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[2,1]","[0.5,1.0]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH']",network_studies/SNNS002.csv,
+SNNS003,2021_06_18,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[2,1]","[0.25,1.5]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH']",network_studies/SNNS003.csv,
+SNNS004,2021_06_18,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[2,1]","[0.333,1.33]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH']",network_studies/SNNS004.csv,
+SNNS005,2021_06_18,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[2,1]","[0.666,0.666]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH']",network_studies/SNNS005.csv,
+SNNS006,2021_06_18,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[2,1]","[0.75,0.5]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH']",network_studies/SNNS006.csv,
+SNNS007,2021_06_18,Jeroen,flow,steady_state,750,100,Tris/Mg,"['GDH','HK']","[2,1]","[0.5,1.0]","['G','NAD','ATP']","['GdL','G6P','NADH','ADP']",,"['G','ATP','NAD']","['NADH']",network_studies/SNNS007.csv,

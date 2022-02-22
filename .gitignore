@@ -1,0 +1,6 @@
+# Notebooks
+**/.ipynb_checkpoints/*
+
+# Python bytecode
+*.pyc
+**/*.egg-info/*
