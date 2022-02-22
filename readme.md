@@ -6,7 +6,6 @@ After installing the required python packages from the `environment.yaml` file (
 
 ## Running the notebooks
 
-
 ## Compiling the manuscript
 
 The manuscript is compiled from a text-based markdown file into a docx file. 
@@ -28,6 +27,9 @@ sudo mv pandoc-crossref.1  /usr/local/man/man1
 The Lua-filters can be downloaded from Github, and take as installation parameter the absolute path to the pandoc data directory
 ```bash
 pandoc -v
+```
+
+```bash
 export PANDOC_DIR={path to pandoc user data directory}
 ```
 
