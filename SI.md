@@ -27,12 +27,15 @@ author:
     email: w.huck@science.ru.nl
 
 link-references: true
+
+figureTitle: "Figure S"
+tableTitle: "Table S"
 figPrefix:
-    - "Figure"
-    - "Figures"
+    - "Figure S"
+    - "Figures S"
 tblPrefix:
-    - "Table"
-    - "Tables"
+    - "Table S"
+    - "Tables S"
 citation-style: analytical-chemistry
 link-citations: true
 link-bibliography: true
@@ -302,11 +305,131 @@ See [@fig:progression] for an extended version of the figure, showing posterior 
 ![**Extended iterative posterior updating **  **A,B** Posterior parameter estimates obtained from the model combining all three (GDH, HK, GDH+HK) observation likelihoods. For every parameter, the distributions are shown for 15 different datasets, with each following dataset containing an extra experiment, added in chronological order. Distributions are shifted and scaled to increase visibility. For the GDH $k_{cat}$, two estimates are obtained because PEBs with two different enzyme concentrations were used in different experiments.](figures/fig_progression.svg){#fig:progression}
 
 \pagebreak
+
+# Model details & sampling diagnostics
+
+## Obtaining improved accuracy from correlated parameter estimates
+```notebooks/diagnostics/correlations_sampling.csv
+Sampling statistics for manuscript Figure 1
+```
+
+Table: Sampling statistics for manuscript Figure 1
+
+```notebooks/diagnostics/correlations.csv
+Sampling diagnostics for manuscript Figure 1
+```
+
+Table: Sampling diagnostics for manuscript Figure 1
+
+\pagebreak
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 1](figures/correlations_traces.svg){#fig:correlations_traces}
+
+\pagebreak
+## Combining diverse experimental datasets
+<!-- \input{{notebooks/diagnostics/datafusion.tex}} -->
+
+```notebooks/diagnostics/datafusion_sampling.csv
+Sampling statistics for manuscript Figure 3
+```
+
+Table: Sampling statistics for manuscript Figure 3
+
+```notebooks/diagnostics/datafusion.csv
+Sampling diagnostics for manuscript Figure 3
+```
+
+Table: Sampling diagnostics for manuscript Figure 3
+
+\pagebreak
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 3](figures/datafusion_traces_params.svg){#fig:datafusion_traces_params}
+
+\pagebreak
+
+![Diagnostic sampling trace plots of all uncertainty estimates inferred in manuscript Figure 3](figures/datafusion_traces_sigmas.svg){#fig:datafusion_traces_sigmas}
+
+\pagebreak
+\pagebreak
+
+## Comparing reaction mechanism hypotheses
+
+### Hypothesis 0
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_0_sampling.md
+```
+Table: Sampling statistics for manuscript Figure 5, Hypothesis 0
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_0.md
+```
+
+Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 0
+
+### Hypothesis 1
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_1_sampling.md
+```
+Table: Sampling statistics for manuscript Figure 5, Hypothesis 1
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_1.md
+```
+
+Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 1
+
+### Hypothesis 2
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_2_sampling.md
+```
+Table: Sampling statistics for manuscript Figure 5, Hypothesis 2
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_2.md
+```
+
+Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 2
+
+### Hypothesis 3
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_3_sampling.md
+```
+Table: Sampling statistics for manuscript Figure 5, Hypothesis 3
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_3.md
+```
+
+Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 3
+
+### Hypothesis 4
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_4_sampling.md
+```
+Table: Sampling statistics for manuscript Figure 5, Hypothesis 4
+
+```{.include}
+notebooks/diagnostics/mechanisms_H_4.md
+```
+
+Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 4
+
+\pagebreak
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 0](figures/mechanisms_H_0_traces.svg){#fig:mechanisms_H_0_traces}
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 1](figures/mechanisms_H_1_traces.svg){#fig:mechanisms_H_1_traces}
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 2](figures/mechanisms_H_2_traces.svg){#fig:mechanisms_H_2_traces}
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 3](figures/mechanisms_H_3_traces.svg){#fig:mechanisms_H_3_traces}
+![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 4](figures/mechanisms_H_4_traces.svg){#fig:mechanisms_H_4_traces}
+
+
 # Appendix
 
 <!-- \addcontentsline{toc}{section}{} -->
-\includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: simple example,1}]{notebooks/example_simple.pdf}
+\includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: simple example,1}]{notebooks/pdfs/example_simple.pdf}
 <!-- \addcontentsline{toc}{chapter}{Jupyter notebook: complex example} -->
-\includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: complex example,1}]{notebooks/example_complex.pdf}
+\includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: complex example,1}]{notebooks/pdfs/example_complex.pdf}
 
 # References
