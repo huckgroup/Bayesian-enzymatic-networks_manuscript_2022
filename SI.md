@@ -309,6 +309,42 @@ See [@fig:progression] for an extended version of the figure, showing posterior 
 # Model details & sampling diagnostics
 
 ## Obtaining improved accuracy from correlated parameter estimates
+
+### Model
+
+The cleavage of R-AMC to AMC by the peptidase Trypsin was modelled following a Michaelis-Menten rate equation with an additional term describing uncompetitive inhibition by the inhibitor AAA-AMC. 
+This results in the following system of ODE's:
+$$
+\mathbf{f}(\mathbf{C}, \phi, \theta): \begin{cases}
+\frac{d[P]}{dt}&=\frac{E\cdot k_{cat}\cdot  [S]}{K_M+[S](1+[I]/K_I)}-k_f [P]\\
+\frac{d[S]}{dt}&=\frac{-E\cdot  k_{cat}\cdot  [S]}{K_M+[S](1+[I]/K_I)}+k_f([S]_{in}-[S])
+\end{cases}
+$$
+where $[S]$ is the concentration of the substrate R-AMC, $[P]$ the concentration of the product AMC, and $[I]$ the concentration of the inhibitor AAA-AMC.
+This system contains 3 kinetic parameters that need to be inferred, $\phi = \{k_{cat}, K_M, K_I\}$, and 4 control parameters $\theta = \{E, k_f, [S]_{in}, [I]\}$. 
+The measurements of the observed product concentration are assumed to have normal-distributed noise $[P]_{obs}\sim N([P]_{ss},\sigma)$ with a mean equal to the true steady-state concentration and an unknown standard-deviation $\sigma$. 
+As priors for all 3 kinetic parameters, uninformative uniform distributions are used, with the following upper and lower boundaries:
+$$
+\begin{aligned}
+    P(k_{cat}) &= \mathcal{U}(0, 500) \\
+    P(K_{M}) &= \mathcal{U}(0, 500) \\
+    P(K_{I}) &= \mathcal{U}(1000, 10000)
+\end{aligned}
+$$
+As prior for the noise estimate sigma, an uninformative exponential distribution is used:
+$$ P(\sigma) = \text{Exp}(10) $$
+
+The full posterior is described by 
+$$
+\begin{aligned}
+P\left(k_{cat}, K_M, K_I, \sigma \middle| [P]_{obs}, E, k_f, [S]_{in}, [I]\right)&\propto \prod_i P(\phi_i)\mathcal{L}(y,\phi)\\
+&\propto P(k_{cat})P(K_{M})P(K_{I})P(\sigma)\mathcal{N}\left([P]_{ss}-[P]_{obs},\sigma\right)
+\end{aligned}
+$$
+where $[P]_{ss} = g(\phi, \theta)$ is the steady-state solution of $\mathbf{f}(\mathbf{C}, \phi, \theta)$.
+
+### Diagnostics
+
 ```notebooks/diagnostics/correlations_sampling.csv
 Sampling statistics for manuscript Figure 1
 ```
@@ -326,7 +362,43 @@ Table: Sampling diagnostics for manuscript Figure 1
 
 \pagebreak
 ## Combining diverse experimental datasets
-<!-- \input{{notebooks/diagnostics/datafusion.tex}} -->
+### Model
+
+The system of GDH and HK PEBs was modeled as a competitive two-reaction system, where GDH catalyses the reaction $\text{G} + \text{NAD} \rightarrow \text{GdL} + \text{NADH}$, and HK catalyses $\text{G} + \text{ATP} \rightarrow \text{G6P} + \text{ADP}$.
+This system is described by the following set of ODE's:
+
+$$
+\mathbf{f}(\mathbf{C}, \phi, \theta): \begin{cases}
+\frac{d[G]}{dt}&=      - \frac{[GDH]\cdot k_{cat}^{GDH}\cdot[G][NAD]}{1+[G]/K_{G}^{GDH} + [NAD]/K_{NAD}^{GDH}} - \frac{[HK]\cdot k_{cat}^{HK}\cdot[G][ATP]}{1+[G]/K_{G}^{HK} + [ATP]/K_{ATP}^{HK}} - k_f ([G] - [G]_in)  \\
+\frac{d[GdL]}{dt}&=     \frac{[GDH]\cdot k_{cat}^{GDH}\cdot[G][NAD]}{1+[G]/K_{G}^{GDH} + [NAD]/K_{NAD}^{GDH}} -k_f [P] - k_f[GdL]\\
+\frac{d[G6P]}{dt}&=     \frac{[HK]\cdot k_{cat}^{HK}\cdot[G][ATP]}{1+[G]/K_{G}^{HK} + [ATP]/K_{ATP}^{HK}} - k_f[G6P]\\
+\frac{d[NAD]}{dt}&=     -\frac{[GDH]\cdot k_{cat}^{GDH}\cdot[G][NAD]}{1+[G]/K_{G}^{GDH} + [NAD]/K_{NAD}^{GDH}} - k_f([NAD] - [NAD]_{in})\\
+\frac{d[NADH]}{dt}&=    \frac{[GDH]\cdot k_{cat}^{GDH}\cdot[G][NAD]}{1+[G]/K_{G}^{GDH} + [NAD]/K_{NAD}^{GDH}} - k_f[NADH]\\
+\frac{d[ATP]}{dt}&=     -\frac{[HK]\cdot k_{cat}^{HK}\cdot[G][ATP]}{1+[G]/K_{G}^{HK} + [ATP]/K_{ATP}^{HK}} - k_f([ATP] - [ATP]_{in})\\
+\frac{d[ADP]}{dt}&=     \frac{[HK]\cdot k_{cat}^{HK}\cdot[G][ATP]}{1+[G]/K_{G}^{HK} + [ATP]/K_{ATP}^{HK}} - k_f[ADP]\\
+\end{cases}
+$$
+
+Depending on the experiment, either the $[NADH]$ concentration or the $[ATP]$ concentration at steady-state are observed, from which the 6 kinetic parameters are inferred, $\phi = \{k_{cat}^{GDH}, K_{G}^{GDH}, K_{NAD}^{GDH}, k_{cat}^{HK}, K_{G}^{HK}, K_{ATP}^{HK}\}$.
+In every experiment, 6 control parameters exist: $\theta = \{[GDH], [HK], k_f, [G]_{in}, [NAD]_{in}, [ATP]_{in},\}$.
+The measurements of the observed product concentration are assumed to have normal-distributed noise $[P]_{obs}\sim N([P]_{ss},\sigma)$ with a mean equal to the true steady-state concentration and an unknown standard-deviation $\sigma$. 
+As priors for the 4 Michaelis kinetic parameters, uninformative uniform distributions are used, with the following upper and lower boundaries:
+$$
+\begin{aligned}
+    P(K_{G}^{GDH}) &= \mathcal{U}(1, 20000) \\
+    P(K_{NAD}^{GDH}) &= \mathcal{U}(1, 20000) \\
+    P(K_{G}^{HK}) &= \mathcal{U}(1, 4000) \\
+    P(K_{ATP}^{HK}) &= \mathcal{U}(1, 6000) \\
+\end{aligned}
+$$
+The 0-value was not included in the domain of these priors because it is highly unlikely and causes problems with divergent sampling.
+
+The turn-over number $k_{cat}$ is not only different for both enzymes, but can also vary between batch of enzymes or PEB's. 
+To somewhat constrain the inferred values and ensure that the sampler can properly converge, the priors were modelled as uniform distributions with an upper boundary sampled from a gamma-distribution. 
+
+As priors for the noise estimate sigmas for each experiment, an exponential distribution was used. To help the sampling procedure, an exponential hyperprior was used for the distribution parameters.
+
+### Diagnostics
 
 ```notebooks/diagnostics/datafusion_sampling.csv
 Sampling statistics for manuscript Figure 3
@@ -341,6 +413,7 @@ Sampling diagnostics for manuscript Figure 3
 Table: Sampling diagnostics for manuscript Figure 3
 
 \pagebreak
+
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 3](figures/datafusion_traces_params.svg){#fig:datafusion_traces_params}
 
 \pagebreak
@@ -348,9 +421,24 @@ Table: Sampling diagnostics for manuscript Figure 3
 ![Diagnostic sampling trace plots of all uncertainty estimates inferred in manuscript Figure 3](figures/datafusion_traces_sigmas.svg){#fig:datafusion_traces_sigmas}
 
 \pagebreak
-\pagebreak
 
 ## Comparing reaction mechanism hypotheses
+
+### Models
+
+The system of G6PDH PEB's was modeled as the reaction $\text{G6p} + \text{NAD} \rightarrow \text{G6PdL} + \text{NADH}$.
+Every hypothesis under investigation followed a different proposed rat equation, but the priors were kept as equivalent uniformative priors for every hypothesis:
+$$
+\begin{aligned}
+    P(k_{cat}) &= \mathcal{U}(0, 500) \\
+    P(K_{NAD} &= \mathcal{U}(1, 4000) \\
+    P(K_{G6P}) &= \mathcal{U}(1, 2000) \\
+    P(K_{I,NADH}) &= \mathcal{U}(1, 10000) \\
+\end{aligned}
+$$
+
+As prior for the noise estimate sigma, an uninformative exponential distribution was used:
+$$ P(\sigma) = \text{Exp}(0.5) $$
 
 ### Hypothesis 0
 
@@ -418,6 +506,7 @@ notebooks/diagnostics/mechanisms_H_4.md
 Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 4
 
 \pagebreak
+
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 0](figures/mechanisms_H_0_traces.svg){#fig:mechanisms_H_0_traces}
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 1](figures/mechanisms_H_1_traces.svg){#fig:mechanisms_H_1_traces}
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 2](figures/mechanisms_H_2_traces.svg){#fig:mechanisms_H_2_traces}
