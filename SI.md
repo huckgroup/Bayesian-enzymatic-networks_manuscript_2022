@@ -28,20 +28,24 @@ author:
 
 link-references: true
 
-figureTitle: "Figure S"
-tableTitle: "Table S"
+figureTitle: "Figure"
+tableTitle: "Table"
 figPrefix:
-    - "Figure S"
-    - "Figures S"
+    - "Figure"
+    - "Figures"
 tblPrefix:
-    - "Table S"
-    - "Tables S"
+    - "Table"
+    - "Tables"
 citation-style: analytical-chemistry
 link-citations: true
 link-bibliography: true
 geometry: margin=1in
 header-includes:
   - \usepackage{pdfpages}
+#   - \usepackage{caption}
+#   - \captionsetup[figure]{labelformat=empty}
+  - \renewcommand{\thefigure}{S\arabic{figure}}
+  - \renewcommand{\thetable}{S\arabic{table}}
 ...
 
 \tableofcontents
@@ -85,9 +89,9 @@ The substrates employed for all metabolic enzymatic reactions were:
 ## Instrumentation & Quantification protocols
 
 ### Flow setup
-![a) Schematic overview of the CSTR. b) Photograph of the CSTR](figures/si_reactor.png){#fig:reactor}
+![(a) Schematic overview of the CSTR. (b) Photograph of the CSTR](figures/si_reactor.png){#fig:reactor}
 
-![a) Overview of the experimental setup, with left the fraction collection, lower center the CSTR on a stirring plate, and lower right the neMESYS pump system. b) Close-up of the CSTR connected to input and output tubing. c) Close-up of the flow cuvette used for online absorbance  detection, provided by LabM8](figures/si_flow_setup.png){#fig:flow_setup}
+![(a) Overview of the experimental setup, with left the fraction collection, lower center the CSTR on a stirring plate, and lower right the neMESYS pump system. (b) Close-up of the CSTR connected to input and output tubing. (c) Close-up of the flow cuvette used for online absorbance  detection, provided by LabM8](figures/si_flow_setup.png){#fig:flow_setup}
 
 A custom made CSTR (see [@fig:reactor] for the design schematic, effective volume $100 \mu L$) was charged with PEBs (in a ratio of 1:31 mg beads:injection volume). 
 The openings of the reactor were sealed with Whatman Nuclepore Track-Etch polycarbonate membranes (5 $\mu m$ poresize, cat. number 10417414) to prevent outflow of PEBs.
@@ -302,7 +306,7 @@ PDF reproductions of example notebooks with explanation (`example_simple.ipynb` 
 
 See [@fig:progression] for an extended version of the figure, showing posterior updating per iteration of new experiment.
 
-![**Extended iterative posterior updating **  **A,B** Posterior parameter estimates obtained from the model combining all three (GDH, HK, GDH+HK) observation likelihoods. For every parameter, the distributions are shown for 15 different datasets, with each following dataset containing an extra experiment, added in chronological order. Distributions are shifted and scaled to increase visibility. For the GDH $k_{cat}$, two estimates are obtained because PEBs with two different enzyme concentrations were used in different experiments.](figures/fig_progression.svg){#fig:progression}
+![**Extended iterative posterior updating **  (a,b) Posterior parameter estimates obtained from the model combining all three (GDH, HK, GDH+HK) observation likelihoods. For every parameter, the distributions are shown for 15 different datasets, with each following dataset containing an extra experiment, added in chronological order. Distributions are shifted and scaled to increase visibility. For the GDH $k_{cat}$, two estimates are obtained because PEBs with two different enzyme concentrations were used in different experiments.](figures/fig_progression.svg){#fig:progression}
 
 \pagebreak
 
@@ -404,13 +408,9 @@ As priors for the noise estimate sigmas for each experiment, an exponential dist
 Sampling statistics for manuscript Figure 3
 ```
 
-Table: Sampling statistics for manuscript Figure 3
-
 ```notebooks/diagnostics/datafusion.csv
 Sampling diagnostics for manuscript Figure 3
 ```
-
-Table: Sampling diagnostics for manuscript Figure 3
 
 \pagebreak
 
@@ -445,73 +445,71 @@ $$ P(\sigma) = \text{Exp}(0.5) $$
 ```{.include}
 notebooks/diagnostics/mechanisms_H_0_sampling.md
 ```
-Table: Sampling statistics for manuscript Figure 5, Hypothesis 0
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_0.md
 ```
-
-Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 0
 
 ### Hypothesis 1
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_1_sampling.md
 ```
-Table: Sampling statistics for manuscript Figure 5, Hypothesis 1
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_1.md
 ```
-
-Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 1
 
 ### Hypothesis 2
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_2_sampling.md
 ```
-Table: Sampling statistics for manuscript Figure 5, Hypothesis 2
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_2.md
 ```
 
-Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 2
 
 ### Hypothesis 3
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_3_sampling.md
 ```
-Table: Sampling statistics for manuscript Figure 5, Hypothesis 3
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_3.md
 ```
 
-Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 3
 
 ### Hypothesis 4
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_4_sampling.md
 ```
-Table: Sampling statistics for manuscript Figure 5, Hypothesis 4
 
 ```{.include}
 notebooks/diagnostics/mechanisms_H_4.md
 ```
 
-Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 4
 
 \pagebreak
 
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 0](figures/mechanisms_H_0_traces.svg){#fig:mechanisms_H_0_traces}
+\pagebreak
+
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 1](figures/mechanisms_H_1_traces.svg){#fig:mechanisms_H_1_traces}
+\pagebreak
+
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 2](figures/mechanisms_H_2_traces.svg){#fig:mechanisms_H_2_traces}
+\pagebreak
+
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 3](figures/mechanisms_H_3_traces.svg){#fig:mechanisms_H_3_traces}
+\pagebreak
+
 ![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 4](figures/mechanisms_H_4_traces.svg){#fig:mechanisms_H_4_traces}
+\pagebreak
+
 
 
 # Appendix
