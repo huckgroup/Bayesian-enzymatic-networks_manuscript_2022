@@ -6,3 +6,4 @@
 | KI_NADH       |        9.91 |      7.15 |       1901 |       2094 |       1 |
 | sigma[SNKS08] |        0.15 |      0.1  |       2068 |       2340 |       1 |
 | sigma[SNKS20] |        0.1  |      0.07 |       2175 |       2106 |       1 |
+Table: Sampling diagnostics for manuscript Figure 5, Hypothesis 4
