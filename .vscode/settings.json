@@ -1,0 +1,11 @@
+{
+    "jupyter.generateSVGPlots": false,
+    "typewriterScrollMode.enable": false,
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent",
+    "python.formatting.provider": "black",
+    "notebook.diff.enablePreview": true,
+    "notebook.lineNumbers": "on",
+    "notebook.outline.showCodeCells": true,
+    "notebook.undoRedoPerCell": true
+}
