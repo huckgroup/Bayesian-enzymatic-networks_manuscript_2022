@@ -46,6 +46,7 @@ header-includes:
 #   - \captionsetup[figure]{labelformat=empty}
   - \renewcommand{\thefigure}{S\arabic{figure}}
   - \renewcommand{\thetable}{S\arabic{table}}
+  - \renewcommand{\thepage}{S\arabic{page}} 
 ...
 
 \tableofcontents
@@ -495,28 +496,38 @@ notebooks/diagnostics/mechanisms_H_4.md
 
 \pagebreak
 
-![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 0](figures/mechanisms_H_0_traces.svg){#fig:mechanisms_H_0_traces}
+![Diagnostic sampling trace plots of kinetic parameters inferred in manuscript Fig. 5, Hypothesis 0](figures/mechanisms_H_0_traces.svg){#fig:mechanisms_H_0_traces}
+
+
 \pagebreak
 
-![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 1](figures/mechanisms_H_1_traces.svg){#fig:mechanisms_H_1_traces}
+![Diagnostic sampling trace plots of kinetic parameters inferred in manuscript Fig. 5, Hypothesis 1](figures/mechanisms_H_1_traces.svg){#fig:mechanisms_H_1_traces}
+
+
 \pagebreak
 
-![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 2](figures/mechanisms_H_2_traces.svg){#fig:mechanisms_H_2_traces}
+![Diagnostic sampling trace plots of kinetic parameters inferred in manuscript Fig. 5, Hypothesis 2](figures/mechanisms_H_2_traces.svg){#fig:mechanisms_H_2_traces}
+
+
 \pagebreak
 
-![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 3](figures/mechanisms_H_3_traces.svg){#fig:mechanisms_H_3_traces}
+![Diagnostic sampling trace plots of kinetic parameters inferred in manuscript Fig. 5, Hypothesis 3](figures/mechanisms_H_3_traces.svg){#fig:mechanisms_H_3_traces}
+
+
 \pagebreak
 
-![Diagnostic sampling trace plots of all kinetic parameters inferred in manuscript Figure 5, Hypothesis 4](figures/mechanisms_H_4_traces.svg){#fig:mechanisms_H_4_traces}
+![Diagnostic sampling trace plots of kinetic parameters inferred in manuscript Fig. 5, Hypothesis 4](figures/mechanisms_H_4_traces.svg){#fig:mechanisms_H_4_traces}
+
+
 \pagebreak
 
-
+<!-- 
 
 # Appendix
 
 <!-- \addcontentsline{toc}{section}{} -->
-\includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: simple example,1}]{notebooks/pdfs/example_simple.pdf}
+<!-- \includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: simple example,1},pagecommand={}]{notebooks/pdfs/example_simple.pdf} -->
 <!-- \addcontentsline{toc}{chapter}{Jupyter notebook: complex example} -->
-\includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: complex example,1}]{notebooks/pdfs/example_complex.pdf}
+<!-- \includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: complex example,1}]{notebooks/pdfs/example_complex.pdf} --> -->
 
 # References
