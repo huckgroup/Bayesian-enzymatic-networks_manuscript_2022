@@ -11,10 +11,6 @@ inverse: manuscript.docx
 	pandoc -s -o output.md --track-changes manuscript.docx
 
 si: bibliography.bib SI.md template_draft.docx figures/* data/* notebooks/* notebooks/diagnostics/* notebooks/pdfs/*
-	# jupyter nbconvert --output-dir='./notebooks/pdfs' --to pdf notebooks/*.ipynb 
-	# cd data && zip -FSr ../out/data.zip **
-	cd notebooks/pdfs && zip -FSr ../../out/notebooks.zip *.pdf
-	# pandoc -s -o out/SI.docx --bibliography bibliography.bib SI.md --lua-filter=include-files.lua --reference-doc=template_draft.docx --filter pandoc-crossref --citeproc -L pagebreak.lua --lua-filter=scholarly-metadata.lua --lua-filter=author-info-blocks.lua
 	pandoc -s -o out/SI.pdf --bibliography bibliography.bib SI.md --filter pandoc-crossref --citeproc --lua-filter=codeBlockToTable.lua  -L pagebreak.lua --lua-filter=scholarly-metadata.lua --lua-filter=author-info-blocks.lua --lua-filter=include-files.lua  
 
 bibliography.bib: ~/phd/library/Library.bib manuscript.md figures/*
