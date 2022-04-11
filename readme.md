@@ -4,8 +4,6 @@ This repository contains all data, notebooks, software requirements, supporting 
 
 After installing the required python packages from the `environment.yaml` file (either directly or via Conda), the notebooks used for data analysis and creation of the various figures found in the final manuscript can be run locally.
 
-## Running the notebooks
-
 ## Compiling the manuscript
 
 The manuscript is compiled from a text-based markdown file into a docx file. 
@@ -38,10 +36,10 @@ RELEASE_URL=https://github.com/pandoc/lua-filters/releases/latest
 curl -LSs $RELEASE_URL/download/lua-filters.tar.gz |     tar --strip-components=1 --one-top-level=$PANDOC_DIR -zvxf -
 ```
 
-### Creating the manuscript
+### Creating the SI pdf
 
-The final manuscript is then created by simply running one of the available `makefile` commands:
+The final Supporting Information document can be created by simply running the available `makefile` command:
 ```bash
-make draft
+make si
 ```
-The document will then appear in the current folder.
+The document will then appear in the `out` folder.
