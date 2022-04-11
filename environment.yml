@@ -16,7 +16,9 @@ dependencies:
   - networkx=2.6
   - sympy=1.8
   - numba=0.53
-  - pandoc=1.15
+  - pandoc=2.16.2
+  - pip=21.1.2
+  - tabulate=0.8.9
   - pip:
     - watermark
     - git+https://github.com/mgbaltussen/BayERN.git@v0.1.0
