@@ -229,13 +229,13 @@ Finally, beads were flash frozen using nitrogen and freeze dried overnight.
 
 ## Overview of PEBs
 
-|Enzyme|Batch number|Enzyme concentration added|Volume per mg of beads|
-|:-----|:-----------|:-------------------------|:---------------------|
-|GDH|1|0.54 kUnit/mL|100 $\mu L$/mg|
-||2|2 kUnit/mL |100 $\mu L$/mg|
-||3|1 kUnit/mL|100 $\mu L$/mg|
-|HK|1|1 kUnit/mL |100 $\mu L$/mg|
-|G6P-DH|1|1 kUnit/mL|100 $\mu L$/mg|
+| Enzyme | Batch number | Enzyme concentration added | Volume per mg of beads |
+| :----- | :----------- | :------------------------- | :--------------------- |
+| GDH    | 1            | 0.54 kUnit/mL              | 100 $\mu L$/mg         |
+|        | 2            | 2 kUnit/mL                 | 100 $\mu L$/mg         |
+|        | 3            | 1 kUnit/mL                 | 100 $\mu L$/mg         |
+| HK     | 1            | 1 kUnit/mL                 | 100 $\mu L$/mg         |
+| G6P-DH | 1            | 1 kUnit/mL                 | 100 $\mu L$/mg         |
 
 Table: Overview of PEB batches {#tbl:PEBs}
 
@@ -249,31 +249,31 @@ The files are directly used during analysis performed in the Jupyter notebooks.
 In the tables below, the volume refers to the volume of PEBs suspension injected into the CSTR, where the PEBs suspension itself is created by suspending 1 mg of dry PEBs in 31 $\mu L$ buffer, or other quantities in the same ratio (1:31). 
 The batch refers to the batch of PEBs, which can contain different effective enzyme concentation. See [@tbl:PEBs] for an overview of all PEB batches.
 
-| Code  |flowrate ($\mu L/h$)|enzyme|volume ($\mu L$)|batch|inputs|observables|observation techniques|
-|:-------|:------|:------|:------|:-----|:---------|:--------|:---------------------|
-|SNCA14|750|GDH|10|1|G, NAD|NADH|offline abs.|
-|SNCA15|750|GDH|10|1|G, NAD|NADH|offline abs.|
-|SNCA17|750|HK|10|1|G, ATP|G6P|G6P assay|
-|SNCA18|750|HK|1|1|G, ATP|G6P|G6P assay|
-|SNKS03|750|HK|1|1|G, ATP|G6P|G6P assay|
-|SNKS04|750|HK|1|1|G, ATP|G6P,ATP|G6P assay, HPLC|
-|SNKS08|750|G6PDH|10|1|G6P, NAD|NADH|offline abs.|
-|SNKS11|750|GDH|0.5|2|G, NAD|NADH|online abs.|
-|SNKS12|750|GDH|0.5|2|G, NAD|NADH|online abs.|
-|SNKS18|750|GDH|2.0|3|G, NAD|NADH|offline abs.|
-|SNKS20|750|G6PDH|2.0|1|G6P, NAD|NADH|online abs.|
+| Code   | flowrate ($\mu L/h$) | enzyme | volume ($\mu L$) | batch | inputs   | observables | observation techniques |
+| :----- | :------------------- | :----- | :--------------- | :---- | :------- | :---------- | :--------------------- |
+| SNCA14 | 750                  | GDH    | 10               | 1     | G, NAD   | NADH        | offline abs.           |
+| SNCA15 | 750                  | GDH    | 10               | 1     | G, NAD   | NADH        | offline abs.           |
+| SNCA17 | 750                  | HK     | 10               | 1     | G, ATP   | G6P         | G6P assay              |
+| SNCA18 | 750                  | HK     | 1                | 1     | G, ATP   | G6P         | G6P assay              |
+| SNKS03 | 750                  | HK     | 1                | 1     | G, ATP   | G6P         | G6P assay              |
+| SNKS04 | 750                  | HK     | 1                | 1     | G, ATP   | G6P,ATP     | G6P assay, HPLC        |
+| SNKS08 | 750                  | G6PDH  | 10               | 1     | G6P, NAD | NADH        | offline abs.           |
+| SNKS11 | 750                  | GDH    | 0.5              | 2     | G, NAD   | NADH        | online abs.            |
+| SNKS12 | 750                  | GDH    | 0.5              | 2     | G, NAD   | NADH        | online abs.            |
+| SNKS18 | 750                  | GDH    | 2.0              | 3     | G, NAD   | NADH        | offline abs.           |
+| SNKS20 | 750                  | G6PDH  | 2.0              | 1     | G6P, NAD | NADH        | online abs.            |
 
 Table: Overview of single-enzyme experiments
 
-| Code  |flowrate ($\mu L/h$)|enzymes|volumes ($\mu L$)|batches|inputs|observables|observation techniques|
-|:-------|:-----|:-------|:----------|:----|:------------|:-----------|:-----------------|
-|SNKS06|750|GDH,HK|10.0, 1.0|1, 1|G, NAD, ATP|NADH, ADP|online abs., HPLC|
-|SNNS002|750|GDH,HK|0.5, 1.0|2, 1|G, NAD, ATP|NADH|online abs.|
-|SNNS003|750|GDH,HK|0.25, 1.5|2, 1|G, NAD, ATP|NADH|online abs.|
-|SNNS004|750|GDH,HK|0.333, 1.33|2, 1|G, NAD, ATP|NADH|online abs.|
-|SNNS005|750|GDH,HK|0.666, 0.666|2, 1|G, NAD, ATP|NADH|online abs.|
-|SNNS006|750|GDH,HK|0.75, 0.5|2, 1|G, NAD, ATP|NADH|online abs.|
-|SNNS007|750|GDH,HK|0.5, 1.0|2, 1|G, NAD, ATP|NADH|online abs.|
+| Code    | flowrate ($\mu L/h$) | enzymes | volumes ($\mu L$) | batches | inputs      | observables | observation techniques |
+| :------ | :------------------- | :------ | :---------------- | :------ | :---------- | :---------- | :--------------------- |
+| SNKS06  | 750                  | GDH,HK  | 10.0, 1.0         | 1, 1    | G, NAD, ATP | NADH, ADP   | online abs., HPLC      |
+| SNNS002 | 750                  | GDH,HK  | 0.5, 1.0          | 2, 1    | G, NAD, ATP | NADH        | online abs.            |
+| SNNS003 | 750                  | GDH,HK  | 0.25, 1.5         | 2, 1    | G, NAD, ATP | NADH        | online abs.            |
+| SNNS004 | 750                  | GDH,HK  | 0.333, 1.33       | 2, 1    | G, NAD, ATP | NADH        | online abs.            |
+| SNNS005 | 750                  | GDH,HK  | 0.666, 0.666      | 2, 1    | G, NAD, ATP | NADH        | online abs.            |
+| SNNS006 | 750                  | GDH,HK  | 0.75, 0.5         | 2, 1    | G, NAD, ATP | NADH        | online abs.            |
+| SNNS007 | 750                  | GDH,HK  | 0.5, 1.0          | 2, 1    | G, NAD, ATP | NADH        | online abs.            |
 
 Table: Overview of multi-enzyme experiments
 
@@ -299,9 +299,7 @@ This operator is freely available from the public github repository at [https://
 
 The samples obtained from the posterior distribution were further analysed using standard statistical tools in Python, the Numeric Python package and the Scientific Python package (NumPy and Scipy)[@Virtanen2020].
 To ensure the accessibility and reproducibility of these results the datasets and Jupyter notebooks, used for the analysis and creation of figures found in the publication, are made available as additional Supporting Information, and directly on github at [https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022](https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022).
-This repository also includes version information for all software dependencies.
-
-PDF reproductions of example notebooks with explanation (`example_simple.ipynb` and `example_complex.ipynb`) are also included in the appendix of this supporting information.
+This repository also includes three example notebooks with additional explanation (`example_simulation.ipynb`, `example_simple.ipynb`, and `example_complex.ipynb`) and version information for all software dependencies.
 
 # Extended iterative combination of experiments
 
@@ -312,6 +310,9 @@ See [@fig:progression] for an extended version of the figure, showing posterior 
 \pagebreak
 
 # Model details & sampling diagnostics
+
+In the following section, the mathematical models on which the analysis is based are described in more detail, alongside additional information on sampling statistics and diagnostics.
+All three sections have a corresponding Jupyter notebook on the github repository at [https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022](https://github.com/huckgroup/Bayesian-enzymatic-networks_manuscript_2022).
 
 ## Obtaining improved accuracy from correlated parameter estimates
 
@@ -441,6 +442,16 @@ $$
 As prior for the noise estimate sigma, an uninformative exponential distribution was used:
 $$ P(\sigma) = \text{Exp}(0.5) $$
 
+### Hypothesis comparison
+
+Comparison of the predictive value of each hypothesis was done based on a PSIS-LOO cross-validiation calculation, with exact LOO cross-validation for observations where the Pareto shape exceeded 0.5. 
+The exact LOO was performed by by direct resampling of the model with the selected observation left out. 
+Results of this procedure can be found in the table below.
+
+```{.include}
+notebooks/diagnostics/mechanisms_loo_comparison.md
+```
+
 ### Hypothesis 0
 
 ```{.include}
@@ -528,6 +539,6 @@ notebooks/diagnostics/mechanisms_H_4.md
 <!-- \addcontentsline{toc}{section}{} -->
 <!-- \includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: simple example,1},pagecommand={}]{notebooks/pdfs/example_simple.pdf} -->
 <!-- \addcontentsline{toc}{chapter}{Jupyter notebook: complex example} -->
-<!-- \includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: complex example,1}]{notebooks/pdfs/example_complex.pdf} --> -->
+<!-- \includepdf[pages={-},addtotoc={1,subsection,2,Jupyter notebook: complex example,1}]{notebooks/pdfs/example_complex.pdf} --> 
 
 # References
