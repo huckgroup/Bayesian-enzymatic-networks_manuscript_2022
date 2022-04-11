@@ -1,6 +1,6 @@
-# A Bayesian approach to understanding artificial enzymatic networks
+# A Bayesian approach to extracting kinetic information from artificial enzymatic networks
 
-This repository contains all data, notebooks, software requirements, supporting information, and the main manuscript text file for the publication 'A Bayesian approach to understanding artificial enzymatic networks'.
+This repository contains all data, notebooks, software requirements, supporting information, and the main manuscript text file for the publication 'A Bayesian approach to extracting kinetic information from artificial enzymatic networks'.
 
 After installing the required python packages from the `environment.yaml` file (either directly or via Conda), the notebooks used for data analysis and creation of the various figures found in the final manuscript can be run locally.
 
